@@ -1,0 +1,98 @@
+<!--
+AI Assistance Disclosure (CS50)
+
+ChatGPT (OpenAI) was used to assist with:
+- HTML page structure
+- Jinja template syntax
+- CSS styling suggestions
+- Responsive layout improvements
+- UI design ideas
+- Debugging template errors
+
+All generated code was reviewed, understood, and modified by the author.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ScholarPath</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+    <a href="/" class="logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+        ScholarPath
+    </a>
+
+    <ul class="nav-links">
+
+        <li><a href="/">Home</a></li>
+
+        <li><a href="/scholarships">Scholarships</a></li>
+
+        <li><a href="/universities">Universities</a></li>
+
+        <li><a href="/ai">AI Recommendation</a></li>
+
+        <li><a href="/blog">Blog</a></li>
+
+    </ul>
+
+    <div class="auth-buttons">
+
+        <a href="/login" class="tracker-btn">Login</a>
+
+        <a href="/register" class="tracker-btn">Sign Up</a>
+
+    </div>
+
+</nav>
+
+    {% block main %}
+    {% endblock %}
+
+<script>
+
+window.addEventListener("scroll", function(){
+
+    const nav = document.querySelector("nav");
+
+    if(window.scrollY > 20){
+
+        nav.classList.add("scrolled");
+
+    }
+
+    else{
+
+        nav.classList.remove("scrolled");
+
+    }
+
+});
+
+</script>
+
+</body>
+
+</html>

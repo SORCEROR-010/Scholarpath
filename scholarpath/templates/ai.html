@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1 class="page-title">AI Scholarship Recommendation</h1>
+
+<p class="page-subtitle">
+    Tell us about yourself and we'll recommend the best scholarships for you.
+</p>
+
+<form action="/recommend" method="POST" class="ai-form">
+
+    <select name="country" required>
+
+        <option value="">Select Country</option>
+        <option>Japan</option>
+        <option>Germany</option>
+        <option>Canada</option>
+        <option>Australia</option>
+        <option>China</option>
+        <option>South Korea</option>
+        <option>USA</option>
+
+        </select>
+
+    <select name="major">
+
+        <option value="Any">Any</option>
+
+        <option value="Engineering">Engineering</option>
+
+        <option value="Computer Science">Computer Science</option>
+
+        <option value="Biology">Biology</option>
+
+        <option value="Medicine">Medicine</option>
+
+        <option value="Business">Business</option>
+
+        <option value="Economics">Economics</option>
+
+    </select>
+
+    <input
+        type="number"
+        name="grade10"
+        min="0"
+        max="100"
+        placeholder="10th Percentage"
+        required>
+
+    <input
+        type="number"
+        name="grade12"
+        min="0"
+        max="100"
+        placeholder="12th Percentage"
+        required>
+
+    <input
+        type="number"
+        step="0.5"
+        name="ielts"
+        min="0"
+        max="9"
+        placeholder="IELTS Score"
+        required>
+
+    <button type="submit">
+        Find My Scholarships
+    </button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1 class="page-title">
+
+Login
+
+</h1>
+
+<div class="login-card">
+
+<form action="/login" method="POST">
+
+<input
+name="username"
+placeholder="Username"
+required>
+
+<input
+type="password"
+name="password"
+placeholder="Password"
+required>
+
+<button class="tracker-btn">
+
+Login
+
+</button>
+
+</form>
+
+</div>
+
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+{% endblock %}
+

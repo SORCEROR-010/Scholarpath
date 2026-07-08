@@ -1,0 +1,1158 @@
+/*
+AI Assistance Disclosure (CS50)
+
+ChatGPT (OpenAI) was used to assist with:
+- CSS layout
+- Flexbox/Grid usage
+- Responsive design
+- Color palette suggestions
+- Animation and styling improvements
+
+Final styling was reviewed and modified by the author.
+*/
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family:"Poppins",sans-serif;
+
+    h1,h2,h3{
+        font-weight:600;
+    }
+
+    p{
+        font-weight:400;
+    }
+
+    background: linear-gradient(
+        130deg,
+        #fff5f5 0%,
+        #ffe8e8 30%,
+        #ffd6e7 60%,
+        #f5f0ff 100%
+    );
+
+    overflow-x: hidden;
+    color: #222;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+
+    display:flex;
+    align-items:center;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    padding:16px 50px;
+
+    background:rgba(255,255,255,0.95);
+
+    backdrop-filter:blur(10px);
+
+    transition:all .3s ease;
+
+}
+
+nav.scrolled{
+
+    background:rgba(255,255,255,0.70);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:35px;
+
+    margin:auto;
+
+}
+
+.auth-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+
+
+/* Active page */
+nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 3px;
+    background: #5a4ff3;
+    border-radius: 10px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.logo i {
+    color: #5a4ff3;
+    font-size: 1.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    color: #2d2d2d;
+    text-decoration: none;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 20px rgba(90,79,243,0.30);
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 85vh;
+
+    padding: 60px 8%;
+    position: relative;
+}
+
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.left {
+    width: 50%;
+    margin-left: -70px;
+}
+
+.left h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+}
+
+.left h1 span {
+    color: #5a4ff3;
+}
+
+.left p {
+    font-size: 1.5rem;
+    color: #666;
+
+    margin-bottom: 30px;
+}
+
+.left button {
+    background: #5a4ff3;
+    color: white;
+
+    border: none;
+
+    padding: 14px 30px;
+    border-radius: 10px;
+
+    font-size: 1rem;
+}
+
+/* Find my schoarship button */
+
+.hero-btn{
+
+    display:inline-block;
+
+    background:#5a4ff3;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 30px;
+
+    border-radius:10px;
+
+    transition:0.3s;
+
+}
+
+
+
+.hero-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(90,79,243,0.3);
+
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
+    width: 60%;
+    position: relative;
+
+    margin-right: -50px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 600px;
+
+    object-fit: cover;
+    border-radius: 30px;
+
+    opacity: 0.95;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.15);
+}
+
+.hero-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: 30px;
+
+    background: rgba(0,0,0,0.15);
+}
+
+/* =========================
+   FORM CARD
+========================= */
+
+.form-card {
+    position: absolute;
+
+    top: 50%;
+    right: 15%;
+
+    transform: translateY(-50%);
+
+    width: 420px;
+
+    padding: 30px;
+
+    background: rgba(255,255,255,0.75);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,0.4);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.12),
+        0 0 50px rgba(255,255,255,0.30);
+}
+
+.form-card h2 {
+    margin-bottom: 20px;
+}
+
+.form-card input {
+    width: 100%;
+
+    padding: 12px;
+    margin-bottom: 12px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.form-card button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #5a4ff3;
+    color: white;
+}
+
+.form-card select{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:12px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+}
+
+/* =========================
+   FEATURES SECTION
+========================= */
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+
+    padding: 50px 8%;
+}
+
+.card {
+    width: 220px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.08);
+
+    text-decoration:none;
+
+    color:inherit;
+}
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.categories button {
+    margin: 5px;
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: #e9e9ff;
+    color: #5a4ff3;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    border-top: 1px solid #ddd;
+}
+
+/* CARD */
+
+.card{
+    transition: all 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   SCHOLARSHIP PAGE
+========================= */
+
+.page-title{
+    text-align:center;
+    font-size:4rem;
+    margin:40px 0 30px;
+}
+
+.page-subtitle{
+    text-align:center;
+    color:#666;
+    font-size:1.1rem;
+    margin-bottom:40px;
+}
+
+/* Search Section */
+
+.search-container{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:50px;
+}
+
+.search-bar{
+    width:700px;
+    height:60px;
+    max-width:70%;
+    padding:15px;
+    font-size:1.1rem;
+
+    border:none;
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.search-btn{
+    height:60;
+
+    background:#5a4ff3;
+    color:white;
+
+    border:none;
+    padding:15px 25px;
+
+    border-radius:12px;
+    cursor:pointer;
+}
+
+/* Scholarship Grid */
+
+.scholarship-grid{
+    width:90%;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap:30px;
+
+    padding-bottom:60px;
+}
+
+/* Scholarship Card */
+
+.scholarship-card{
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    text-align:left;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+}
+
+.scholarship-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(90,79,243,0.15);
+}
+
+.scholarship-card h3{
+    font-size:1.5rem;
+    color:#222;
+
+    margin-bottom:15px;
+}
+
+.country{
+    color:#5a4ff3;
+    font-weight:bold;
+
+    margin-bottom:12px;
+}
+
+.funding{
+    display:inline-block;
+
+    background:#e9e9ff;
+    color:#5a4ff3;
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+    font-size:0.9rem;
+}
+
+/* Country filter */
+
+.country-filter{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+
+    margin-bottom:50px;
+}
+
+.country-filter a{
+    background:#e9e9ff;
+    color:#5a4ff3;
+
+    text-decoration:none;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    transition:0.3s;
+}
+
+.country-filter a:hover{
+    background:#5a4ff3;
+    color:white;
+}
+
+/* Scholarship description */
+
+.description{
+    color:#666;
+    line-height:1.5;
+    margin:15px 0;
+}
+
+/* Scholarship statics */
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+
+    margin-bottom:50px;
+}
+
+.stat-box{
+    background:white;
+
+    padding:15px 25px;
+
+    border-radius:15px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* Remove blue underline from links */
+
+.card-link{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* SCHOLARSHIP DETAILS PAGE */
+
+.details-container{
+    display:flex;
+    justify-content:center;
+    padding:60px 20px;
+}
+
+.details-card{
+    width:800px;
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.details-card h1{
+    margin-bottom:30px;
+    color:#5a4ff3;
+}
+
+.detail-row{
+    margin-bottom:18px;
+    font-size:1.1rem;
+}
+
+/* Official Website Button */
+
+.apply-btn{
+
+    display:inline-block;
+
+    background:#5a4ff3;
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.apply-btn:hover{
+
+    background:#493de0;
+
+}
+
+/* =========================
+   UNIVERSITIES
+========================= */
+
+.university-grid{
+    width:90%;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
+    gap:30px;
+
+    padding-bottom:60px;
+}
+
+.university-card{
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+}
+
+.university-card:hover{
+    transform:translateY(-8px);
+}
+
+.ranking{
+    display:inline-block;
+
+    background:#e9e9ff;
+    color:#5a4ff3;
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+    margin-top:10px;
+}
+
+/* =========================
+   AI RECOMMENDATION  PAGE
+========================= */
+
+/* AI PAGE */
+
+.ai-form{
+
+    width:600px;
+
+    margin:40px auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+}
+
+.ai-form input,
+.ai-form select{
+
+    padding:15px;
+
+    border-radius:10px;
+
+    border:1px solid #ddd;
+
+    font-size:1rem;
+
+}
+
+.ai-form button{
+
+    background:#5a4ff3;
+
+    color:white;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    font-size:1rem;
+
+}
+
+/* AI result */
+
+.page-subtitle{
+
+    text-align:center;
+
+    color:#666;
+
+    margin-bottom:40px;
+
+    font-size:1.1rem;
+
+}
+
+.match-list{
+
+    text-align:left;
+
+    margin-top:15px;
+
+    padding-left:20px;
+
+}
+
+.match-list li{
+
+    margin-bottom:8px;
+
+    color:#444;
+
+}
+
+.scholarship-card{
+
+    position:relative;
+
+}
+
+/* =========================
+   TRACKOR
+========================= */
+
+.tracker-table{
+
+width:90%;
+
+margin:auto;
+
+border-collapse:collapse;
+
+background:white;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.tracker-table th{
+
+background:#5a4ff3;
+
+color:white;
+
+padding:15px;
+
+}
+
+.tracker-table td{
+
+padding:15px;
+
+border-bottom:1px solid #eee;
+
+text-align:center;
+
+}
+.tracker-btn{
+
+    display:inline-block;
+
+    background:#5a4ff3;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px 28px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.tracker-btn:hover{
+
+    background:#4638d9;
+
+}
+
+.tracker-table select{
+
+    padding:8px 12px;
+
+    border-radius:8px;
+
+    border:1px solid #ddd;
+
+    width:160px;
+
+}
+
+.button-group{
+
+    display:flex;
+
+    gap:20px;
+
+    margin-top:35px;
+
+    align-items:center;
+
+}
+
+.button-group form{
+
+    margin:0;
+
+}
+
+/* Delete tracker */
+
+.delete-btn{
+
+background:#ef4444;
+
+color:white;
+
+border:none;
+
+padding:10px 15px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+}
+
+.delete-btn:hover{
+
+background:#dc2626;
+
+}
+
+/* Tracker stats */
+
+.tracker-stats{
+    width:90%;
+    margin:30px auto;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.stat-card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.stat-card h2{
+    color:#5a4ff3;
+    font-size:2rem;
+}
+
+.stat-card p{
+    color:#666;
+    margin-top:10px;
+}
+
+
+
+
+/* =========================
+   STATUS BADGES
+========================= */
+
+.status-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:120px;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    color:white;
+
+    font-weight:bold;
+
+    font-size:0.9rem;
+
+}
+
+/* Planning */
+
+.status-planning{
+
+    background:#f59e0b;
+
+}
+
+/* Documents Ready */
+
+.status-documents-ready{
+
+    background:#3b82f6;
+
+}
+
+/* Submitted */
+
+.status-submitted{
+
+    background:#8b5cf6;
+
+}
+
+/* Interview */
+
+.status-interview{
+
+    background:#ec4899;
+
+}
+
+/* Accepted */
+
+.status-accepted{
+
+    background:#22c55e;
+
+}
+
+/* Rejected */
+
+.status-rejected{
+
+    background:#ef4444;
+
+}
+
+.status-cell{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.status-cell form{
+
+    margin:0;
+
+}
+
+.status-cell select{
+
+    width:170px;
+
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-card{
+
+    width:420px;
+
+    margin:40px auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.login-card input{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:20px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+}
+
+/* =========================
+   BLOG
+========================= */
+
+.blog-grid{
+
+width:90%;
+margin:40px auto;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:25px;
+
+}
+
+.blog-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:15px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.blog-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.article-card{
+
+width:80%;
+
+margin:50px auto;
+
+background:white;
+
+padding:40px;
+
+border-radius:15px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}

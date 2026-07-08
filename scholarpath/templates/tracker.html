@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1 class="page-title">
+
+Application Tracker
+
+</h1>
+
+<div class="tracker-stats">
+
+    <div class="stat-card">
+        <h2>{{ total }}</h2>
+        <p>Total</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>{{ submitted }}</h2>
+        <p>Submitted</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>{{ accepted }}</h2>
+        <p>Accepted</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>{{ rejected }}</h2>
+        <p>Rejected</p>
+    </div>
+
+</div>
+
+<table class="tracker-table">
+
+<tr>
+
+      <th>Scholarship</th>
+
+      <th>Country</th>
+
+      <th>Deadline</th>
+
+      <th>Status</th>
+
+      <th>Remove</th>
+
+</tr>
+
+{% for item in tracker %}
+
+<tr>
+
+<td>{{ item.scholarship_name }}</td>
+
+<td>{{ item.country }}</td>
+
+<td>{{ item.deadline }}</td>
+
+<td class="status-cell">
+
+    <span class="status-badge status-{{ item.status|lower|replace(' ', '-') }}">
+        {{ item.status }}
+    </span>
+
+    <form action="/update_status/{{ item.id }}" method="POST">
+
+        <select name="status" onchange="this.form.submit()">
+
+            <option value="Planning" {% if item.status=="Planning" %}selected{% endif %}>Planning</option>
+
+            <option value="Documents Ready" {% if item.status=="Documents Ready" %}selected{% endif %}>Documents Ready</option>
+
+            <option value="Submitted" {% if item.status=="Submitted" %}selected{% endif %}>Submitted</option>
+
+            <option value="Interview" {% if item.status=="Interview" %}selected{% endif %}>Interview</option>
+
+            <option value="Accepted" {% if item.status=="Accepted" %}selected{% endif %}>Accepted</option>
+
+            <option value="Rejected" {% if item.status=="Rejected" %}selected{% endif %}>Rejected</option>
+
+        </select>
+
+    </form>
+
+</td>
+
+<td>
+
+<form action="/delete_tracker/{{ item.id }}" method="POST">
+
+<button class="delete-btn">
+
+🗑
+
+</button>
+
+</form>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

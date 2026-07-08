@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<section class="details-container">
+
+    <div class="details-card">
+
+        <h1>{{ scholarship.name }}</h1>
+
+        <div class="detail-row">
+            <strong>Country:</strong>
+            {{ scholarship.country }}
+        </div>
+
+        <div class="detail-row">
+            <strong>Funding:</strong>
+            {{ scholarship.funding }}
+        </div>
+
+        <div class="detail-row">
+            <strong>Major:</strong>
+            {{ scholarship.major }}
+        </div>
+
+        <div class="detail-row">
+            <strong>Deadline:</strong>
+            {{ scholarship.deadline }}
+        </div>
+
+        <div class="detail-row">
+            <strong>Eligibility:</strong>
+            {{ scholarship.eligibility }}
+        </div>
+
+        <div class="detail-row">
+            <strong>Benefits:</strong>
+            {{ scholarship.benefits }}
+        </div>
+
+        <div class="button-group">
+
+            <a href="{{ scholarship.website }}"
+            target="_blank"
+            class="apply-btn">
+
+            Official Website
+
+        </a>
+
+        <form action="/track/{{ scholarship.id }}"
+
+        method="POST">
+
+        <button type="submit" class="tracker-btn">
+
+            + Add To Tracker
+
+        </button>
+
+    </form>
+
+</div>
+
+</section>
+
+{% endblock %}

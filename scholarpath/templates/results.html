@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1 class="page-title">
+    AI Scholarship Recommendations
+</h1>
+
+<p class="page-subtitle">
+    These scholarships best match your academic profile.
+</p>
+
+<div class="scholarship-grid">
+
+{% if scholarships %}
+
+    {% for scholarship in scholarships %}
+
+    <div class="scholarship-card">
+
+        <div class="funding">
+            {{ scholarship.funding }}
+        </div>
+
+        <h2>{{ scholarship.name }}</h2>
+
+        <p>🌍 <strong>Country:</strong> {{ scholarship.country }}</p>
+
+        <p>📚 <strong>Major:</strong> {{ scholarship.major }}</p>
+
+        <p>{{ scholarship.description }}</p>
+
+        <hr>
+
+        <p>⭐ <strong>Minimum Grade:</strong> {{ scholarship.min_grade }}%</p>
+
+        <p>🌐 <strong>Minimum IELTS:</strong> {{ scholarship.min_ielts }}</p>
+
+        <p>📅 <strong>Deadline:</strong> {{ scholarship.deadline }}</p>
+
+        <br>
+
+        <h4>Why this scholarship matches you</h4>
+
+        <ul class="match-list">
+
+            <li>✔ Country matches your selected destination.</li>
+
+            <li>✔ Major matches your selected field of study.</li>
+
+            <li>✔ Your academic percentage meets the minimum requirement.</li>
+
+            <li>✔ Your IELTS score satisfies the language requirement.</li>
+
+        </ul>
+
+        <br>
+
+        <a href="/scholarship/{{ scholarship.id }}"
+           class="apply-btn">
+
+            View Scholarship Details
+
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+<div class="details-card">
+
+    <h2>No Scholarships Found</h2>
+
+    <p>
+
+        No scholarships matched your profile.
+        Try changing your country, major, grades, or IELTS score.
+
+    </p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

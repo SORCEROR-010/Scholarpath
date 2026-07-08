@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1 class="page-title">
+
+Scholarship Blog
+
+</h1>
+
+<div class="blog-grid">
+
+{% for article in articles %}
+
+<a href="/blog/{{ article.id }}" class="card-link">
+
+<div class="blog-card">
+
+<h2>{{ article.title }}</h2>
+
+<p>{{ article.summary }}</p>
+
+<span>{{ article.category }}</span>
+
+</div>
+
+</a>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

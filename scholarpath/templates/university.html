@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<div class="details-container">
+
+    <div class="details-card">
+
+        <h1>{{ university.name }}</h1>
+
+        <div class="detail-row">
+            <strong>Country:</strong>
+            {{ university.country }}
+        </div>
+
+        <div class="detail-row">
+            <strong>Ranking:</strong>
+            {{ university.ranking }}
+        </div>
+
+        <div class="detail-row">
+            <strong>Tuition:</strong>
+            {{ university.tuition }}
+        </div>
+
+        <div class="detail-row">
+            <strong>Description:</strong>
+            {{ university.description }}
+        </div>
+
+        <a href="{{ university.website }}"
+           class="apply-btn"
+           target="_blank">
+           Visit Website
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

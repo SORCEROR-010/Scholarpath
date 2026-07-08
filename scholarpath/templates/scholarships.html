@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1 class="page-title">Find the Perfect Scholarship for You</h1>
+
+<p class="page-subtitle">
+    Explore fully funded and partial scholarships from top universities around the world.
+</p>
+
+<form action="/scholarships" method="GET" class="search-container">
+
+    <input
+        type="text"
+        name="search"
+        placeholder="Search scholarship name, country..."
+        class="search-bar">
+
+    <button type="submit" class="search-btn">
+        Search
+    </button>
+
+</form>
+
+<div class="country-filter">
+
+    <a href="/scholarships">All</a>
+
+    <a href="/scholarships?country=Japan">Japan</a>
+
+    <a href="/scholarships?country=Germany">Germany</a>
+
+    <a href="/scholarships?country=South Korea">South Korea</a>
+
+    <a href="/scholarships?country=China">China</a>
+
+    <a href="/scholarships?country=USA">USA</a>
+
+    <a href="/scholarships?country=Canada">Canada</a>
+
+    <a href="/scholarships?country=Australia">Australia</a>
+
+</div>
+
+<div class="scholarship-grid">
+
+    {% for scholarship in scholarships %}
+
+    <a href="/scholarship/{{ scholarship.id }}" class="card-link">
+
+        <div class="card">
+
+            <h3>{{ scholarship.name }}</h3>
+
+            <p class="description">
+                {{ scholarship.description }}
+            </p>
+
+            <p>{{ scholarship.country }}</p>
+
+            <span>{{ scholarship.funding }}</span>
+
+        </div>
+
+    </a>
+
+    {% endfor %}
+
+</div>
+
+<div class="stats">
+
+    <div class="stat-box">
+        70+ Scholarships
+    </div>
+
+    <div class="stat-box">
+        7 Countries
+    </div>
+
+    <div class="stat-box">
+        Fully & Partial Funded
+    </div>
+
+</div>
+
+{% endblock %}

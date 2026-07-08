@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1 class="page-title">
+    UNIVERSITIES
+</h1>
+
+<form action="/universities" method="GET">
+
+    <div class="search-container">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search universities..."
+            class="search-bar"
+        >
+
+        <button type="submit"
+                class="search-btn">
+
+            Search
+
+        </button>
+
+    </div>
+
+</form>
+
+<div class="university-grid">
+
+    {% for university in universities %}
+
+    <a href="/university/{{ university.id }}"
+       class="card-link">
+
+        <div class="university-card">
+
+            <h3>{{ university.name }}</h3>
+
+            <p class="country">
+                {{ university.country }}
+            </p>
+
+            <p class="ranking">
+                {{ university.ranking }}
+            </p>
+
+        </div>
+
+    </a>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,164 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<section class="hero">
+
+    <div class="left">
+
+        <h1>
+            Find Scholarships in
+            <span>Japan, Germany, Canada, Australia, China, South Korea & USA</span>
+        </h1>
+
+        <p>
+            Explore top scholarships and universities with AI-powered recommendations.
+        </p>
+
+        <a href="/ai" class="hero-btn">
+            Find My Scholarships
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+        <img src="https://static.vecteezy.com/system/resources/previews/035/973/598/non_2x/ai-generated-mt-fuji-with-cherry-blossom-and-pagoda-at-sunset-fujiyoshida-japan-beautiful-view-of-mount-fuji-and-chureito-pagoda-at-sunset-ai-generated-free-photo.jpg"
+             alt="Scholarship Image">
+    </div>
+
+
+
+    <div class="form-card">
+
+        <h2>Find Scholarships</h2>
+
+        <form action="/recommend" method="POST">
+
+            <select name="country" required>
+
+                <option value="">Select Country</option>
+
+                <option>Japan</option>
+                <option>Germany</option>
+                <option>Canada</option>
+                <option>Australia</option>
+                <option>China</option>
+                <option>South Korea</option>
+                <option>USA</option>
+
+            </select>
+
+            <select name="major">
+
+                <option value="Any">Any</option>
+
+                <option value="Engineering">Engineering</option>
+
+                <option value="Computer Science">Computer Science</option>
+
+                <option value="Biology">Biology</option>
+
+                <option value="Medicine">Medicine</option>
+
+                <option value="Business">Business</option>
+
+                <option value="Economics">Economics</option>
+
+            </select>
+
+            <input
+            type="number"
+            name="grade10"
+            min="0"
+            max="100"
+            placeholder="10th Percentage"
+            required>
+
+            <input
+            type="number"
+            name="grade12"
+            min="0"
+            max="100"
+            placeholder="12th Percentage"
+            required>
+
+            <input
+            type="number"
+            step="0.5"
+            name="ielts"
+            min="0"
+            max="9"
+            placeholder="IELTS Score"
+            required>
+
+        <button type="submit">
+            Find Scholarships
+        </button>
+
+    </form>
+
+</div>
+
+</section>
+
+<section class="features">
+
+    <a href="/ai" class="card">
+        🤖 AI Recommendation
+    </a>
+
+    <a href="/scholarships" class="card">
+        <div>🎓 73</div>
+        <div>Scholarships</div>
+    </a>
+
+    <a href="/universities" class="card">
+        🏫 70 University Database
+    </a>
+
+    <a href="/tracker" class="card">
+        📋 Application Tracker
+    </a>
+
+</section>
+
+<section class="categories">
+
+    <a href="/scholarships?country=Japan">
+        <button>Japan</button>
+    </a>
+
+    <a href="/scholarships?country=Germany">
+        <button>Germany</button>
+    </a>
+
+    <a href="/scholarships?country=South Korea">
+        <button>South Korea</button>
+    </a>
+
+    <a href="/scholarships?country=China">
+        <button>China</button>
+    </a>
+
+    <a href="/scholarships?country=USA">
+        <button>USA</button>
+    </a>
+
+    <a href="/scholarships?country=Canada">
+        <button>Canada</button>
+    </a>
+
+    <a href="/scholarships?country=Australia">
+        <button>Australia</button>
+    </a>
+
+</section>
+
+<footer>
+
+    <p>© 2026 ScholarPath</p>
+
+</footer>
+
+
+{% endblock %}
