@@ -42,6 +42,10 @@ It includes an AI-inspired recommendation system that recommends scholarships ba
 - China
 - South Korea
 
+## Website link
+
+https://scholarpath-plbi.onrender.com
+
 ## Author
 
 Samuel Davis
